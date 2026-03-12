@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fcfaf7;
+  --foreground: #102139;
+  --brand-navy: #05264d;
+  --brand-red: #d53033;
+  --brand-gold: #f4b56d;
+  --brand-cream: #f7efe7;
+  --brand-sand: #ebe1d8;
+  --brand-ink: #102139;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-red: var(--brand-red);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-cream: var(--brand-cream);
+  --color-brand-sand: var(--brand-sand);
+  --color-brand-ink: var(--brand-ink);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(213, 48, 51, 0.16), transparent 24%),
+    radial-gradient(circle at top right, rgba(5, 38, 77, 0.16), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(244, 181, 109, 0.18), transparent 28%),
+    linear-gradient(180deg, #fffaf4 0%, #fcfaf7 40%, #f6efe8 100%);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(5, 38, 77, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5, 38, 77, 0.05) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 32%, transparent 82%);
+  opacity: 0.16;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.section-shell {
+  width: min(100%, 84rem);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+.fade-up-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.fade-up-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.fade-up-delay-3 {
+  animation-delay: 0.36s;
+}
+
+.float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-up,
+  .fade-up-delay-1,
+  .fade-up-delay-2,
+  .fade-up-delay-3,
+  .float-soft {
+    animation: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    padding-inline: 2rem;
+  }
+}

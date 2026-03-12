@@ -1,0 +1,22 @@
+[00:00:10.554] Server  LOG     ✓ Ready in 6.6s
+[00:09:48.900] Server  LOG     ✓ Compiled in 154ms
+[00:09:49.858] Browser WARN    Image with src "/exceed-logo.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:10:04.972] Browser WARN    Image with src "/cpr-training.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:10:18.640] Server  LOG     ✓ Compiled in 28.9s
+[00:28:11.081] Server  LOG     ✓ Compiled in 14s
+[00:28:52.461] Browser WARN    Image with src "/cpr-training.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:33:43.633] Browser WARN    Image with src "/cpr-training.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:38:58.511] Server  LOG     ✓ Compiled in 315.5s
+[00:41:06.290] Browser ERROR   React instrumentation encountered an error: %o {}
+[00:44:03.314] Server  LOG     ✓ Compiled in 283.3s
+[00:44:51.600] Browser WARN    Image with src "/cpr-training.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:44:53.591] Browser WARN    Image with src "/cpr-training.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:52:40.354] Server  LOG     ✓ Compiled in 5s
+[00:52:40.808] Server  LOG     ✓ Compiled in 443ms
+[00:57:49.887] Server  LOG     ✓ Compiled in 85.7s
