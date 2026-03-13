@@ -20,6 +20,7 @@ type ProgramOption = {
   description: string;
   certificate: string;
   includes: string[];
+  checkoutUrl: string;
   icon: LucideIcon;
   featured?: boolean;
 };
@@ -58,6 +59,7 @@ const programOptions: ProgramOption[] = [
       "Infant CPR",
       "Child and infant choking",
     ],
+    checkoutUrl: "https://buy.stripe.com/00wbIUf4E7k66FX2SfdfG0j",
     icon: HeartPulse,
   },
   {
@@ -76,6 +78,7 @@ const programOptions: ProgramOption[] = [
       "Injury emergencies",
       "Environmental emergencies",
     ],
+    checkoutUrl: "https://buy.stripe.com/4gMfZabSs9se4xPakHdfG0k",
     icon: ShieldCheck,
     featured: true,
   },
@@ -196,6 +199,25 @@ export default function Home() {
               >
                 See What You Learn
               </a>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-3">
+              {programOptions.map(({ name, price, checkoutUrl, featured }) => (
+                <a
+                  key={name}
+                  href={checkoutUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Enroll now in ${name} for ${price}`}
+                  className={`inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-bold transition-transform hover:-translate-y-0.5 ${
+                    featured
+                      ? "bg-brand-red text-white hover:bg-brand-red/92"
+                      : "border border-brand-navy/12 bg-white text-brand-navy hover:bg-brand-navy/5"
+                  }`}
+                >
+                  Enroll Now
+                </a>
+              ))}
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -323,7 +345,7 @@ export default function Home() {
 
         <div className="mt-10 grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(320px,0.95fr)]">
           {programOptions.map(
-            ({ option, name, price, duration, time, description, certificate, includes, icon: Icon, featured }) => (
+            ({ option, name, price, duration, time, description, certificate, includes, checkoutUrl, icon: Icon, featured }) => (
               <article
                 key={name}
                 className={`fade-up overflow-hidden rounded-[34px] border p-6 shadow-[0_25px_70px_rgba(5,38,77,0.12)] ${
@@ -403,6 +425,20 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
+
+                <a
+                  href={checkoutUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Enroll now in ${name} for ${price}`}
+                  className={`mt-6 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-sm font-bold transition-transform hover:-translate-y-0.5 ${
+                    featured
+                      ? "bg-white text-brand-red hover:bg-white/92"
+                      : "bg-brand-navy text-white hover:bg-brand-navy/92"
+                  }`}
+                >
+                  Enroll Now
+                </a>
               </article>
             ),
           )}
