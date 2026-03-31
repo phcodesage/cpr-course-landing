@@ -15,9 +15,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "CPR Certification Course | Exceed Learning Center",
+  title: "CPR AND FIRST AID TRAINING | Exceed Learning Center",
   description:
-    "March 22 CPR and First Aid certification course from Exceed Learning Center for kids and adults.",
+    "March 22 CPR and First Aid certification course from Exceed Learning Center for teens and adults.",
 };
 
 export default function RootLayout({

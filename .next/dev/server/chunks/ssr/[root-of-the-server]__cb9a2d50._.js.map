@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///D:/code-files/vite-proj/exceed-learning-sites/cpr-course-landing-page/components/smooth-scroll.tsx"],"sourcesContent":["\"use client\";\n\nimport { useEffect } from \"react\";\nimport Lenis from \"lenis\";\n\nexport function SmoothScroll() {\n  useEffect(() => {\n    const reducedMotionQuery = window.matchMedia(\"(prefers-reduced-motion: reduce)\");\n\n    if (reducedMotionQuery.matches) {\n      return;\n    }\n\n    const lenis = new Lenis({\n      duration: 1.05,\n      smoothWheel: true,\n      anchors: true,\n    });\n\n    let frameId = 0;\n\n    const raf = (time: number) => {\n      lenis.raf(time);\n      frameId = requestAnimationFrame(raf);\n    };\n\n    frameId = requestAnimationFrame(raf);\n\n    return () => {\n      cancelAnimationFrame(frameId);\n      lenis.destroy();\n    };\n  }, []);\n\n  return null;\n}\n"],"names":[],"mappings":";;;;AAEA;AACA;AAHA;;;AAKO,SAAS;IACd,IAAA,kNAAS,EAAC;QACR,MAAM,qBAAqB,OAAO,UAAU,CAAC;QAE7C,IAAI,mBAAmB,OAAO,EAAE;YAC9B;QACF;QAEA,MAAM,QAAQ,IAAI,kJAAK,CAAC;YACtB,UAAU;YACV,aAAa;YACb,SAAS;QACX;QAEA,IAAI,UAAU;QAEd,MAAM,MAAM,CAAC;YACX,MAAM,GAAG,CAAC;YACV,UAAU,sBAAsB;QAClC;QAEA,UAAU,sBAAsB;QAEhC,OAAO;YACL,qBAAqB;YACrB,MAAM,OAAO;QACf;IACF,GAAG,EAAE;IAEL,OAAO;AACT"}}]
-}

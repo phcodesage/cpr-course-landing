@@ -39,7 +39,7 @@ type Module = {
 const quickStats: Stat[] = [
   { label: "Date", value: "March 22", icon: CalendarDays },
   { label: "Start time", value: "10:00 AM", icon: Clock3 },
-  { label: "Ages", value: "Kids and adults", icon: Users },
+  { label: "Ages", value: "Teens and adults", icon: Users },
 ];
 
 const programOptions: ProgramOption[] = [
@@ -51,12 +51,11 @@ const programOptions: ProgramOption[] = [
     time: "10:00 AM - 12:00 PM",
     description:
       "A focused CPR AED session for anyone who needs a shorter training format with recognized certification.",
-    certificate: "CPR certificate included",
+    certificate: "2 year CPR certification included",
     includes: [
       "Adult CPR AED",
       "Adult choking",
       "Child CPR AED",
-      "Infant CPR",
       "Child and infant choking",
     ],
     checkoutUrl: "https://buy.stripe.com/00wbIUf4E7k66FX2SfdfG0j",
@@ -70,7 +69,7 @@ const programOptions: ProgramOption[] = [
     time: "10:00 AM - 2:00 PM",
     description:
       "A longer course that adds first aid training for a fuller emergency-response skill set.",
-    certificate: "Certificate includes First Aid",
+    certificate: "2 year certification for both CPR and First Aid",
     includes: [
       "Everything in the CPR Only course",
       "First aid basics",
@@ -94,14 +93,13 @@ const courseAudience = [
   "Individuals who must respond to a cardiac emergency because of job responsibilities or regulatory requirements.",
   "Lay rescuers who may need to respond to an emergency in the workplace.",
   "Family members of patients at high risk for sudden cardiac death.",
-  "Kids, teens, and adults who want practical, life-saving confidence.",
+  "Teens and adults who want practical, life-saving confidence.",
 ];
 
 const cprCourseCoverage = [
   "Adult CPR AED",
   "Adult choking",
   "Child CPR AED",
-  "Infant CPR",
   "Child and infant choking",
 ];
 
@@ -168,7 +166,7 @@ export default function Home() {
                 March 22 session
               </span>
               <span className="rounded-full border border-brand-navy/12 bg-brand-navy/5 px-4 py-2 text-sm font-semibold text-brand-navy">
-                For kids and adults
+                For teens and adults
               </span>
               <span className="rounded-full border border-brand-gold/22 bg-brand-gold/14 px-4 py-2 text-sm font-semibold text-brand-ink">
                 AHA-aligned certification
@@ -176,7 +174,7 @@ export default function Home() {
             </div>
 
             <h1 className="mt-7 max-w-3xl font-display text-4xl font-semibold leading-[1.02] text-brand-ink sm:text-5xl lg:text-6xl [text-wrap:balance]">
-              CPR training for all ages with a clear schedule, trusted certification, and a polished presentation.
+              CPR AND FIRST AID TRAINING
             </h1>
 
             <p className="mt-5 max-w-2xl text-base leading-8 text-brand-ink/74 sm:text-lg">

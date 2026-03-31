@@ -72,7 +72,7 @@ export function SiteHeader() {
                   isScrolled ? "mt-0.5 text-sm sm:text-lg" : "mt-1 text-base sm:text-xl"
                 }`}
               >
-                CPR Certification Course
+                CPR AND FIRST AID TRAINING
               </p>
             </div>
           </a>
