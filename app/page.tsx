@@ -37,7 +37,7 @@ type Module = {
 };
 
 const quickStats: Stat[] = [
-  { label: "Date", value: "March 22", icon: CalendarDays },
+  { label: "Date", value: "April 19", icon: CalendarDays },
   { label: "Start time", value: "10:00 AM", icon: Clock3 },
   { label: "Ages", value: "Teens and adults", icon: Users },
 ];
@@ -163,7 +163,7 @@ export default function Home() {
           <div className="fade-up fade-up-delay-1 rounded-[38px] border border-white/75 bg-white/82 px-6 py-8 shadow-[0_30px_90px_rgba(5,38,77,0.12)] backdrop-blur sm:px-8 sm:py-10 lg:px-10 lg:py-12">
             <div className="flex flex-wrap gap-3">
               <span className="rounded-full border border-brand-red/16 bg-brand-red/8 px-4 py-2 text-sm font-semibold text-brand-red">
-                March 22 session
+                April 19 session
               </span>
               <span className="rounded-full border border-brand-navy/12 bg-brand-navy/5 px-4 py-2 text-sm font-semibold text-brand-navy">
                 For teens and adults
@@ -255,7 +255,7 @@ export default function Home() {
 
                 <div className="absolute left-5 right-5 top-5 flex items-start sm:left-6 sm:right-6 sm:top-6">
                   <div className="rounded-full border border-white/20 bg-white/12 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur">
-                    March 22 at 10:00 AM
+                    April 19 at 10:00 AM
                   </div>
                 </div>
 
@@ -338,7 +338,7 @@ export default function Home() {
         <SectionIntro
           eyebrow="Programs"
           title="A cleaner schedule and stronger visual hierarchy make the offer easy to trust."
-          description="The course options below match the exact March 22 schedule while keeping certification details visible at the same time."
+          description="The course options below match the exact April 19 schedule while keeping certification details visible at the same time."
         />
 
         <div className="mt-10 grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(320px,0.95fr)]">
@@ -590,7 +590,7 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/72">
-                March 22 CPR course
+                April 19 CPR course
               </p>
               <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-4xl [text-wrap:balance]">
                 Train once and leave with skills that matter at home, at work, and in the community.

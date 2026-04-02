@@ -17,7 +17,13 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "CPR AND FIRST AID TRAINING | Exceed Learning Center",
   description:
-    "March 22 CPR and First Aid certification course from Exceed Learning Center for teens and adults.",
+    "April 19 CPR and First Aid certification course from Exceed Learning Center for teens and adults.",
+  icons: {
+    icon: "/favicon/favicon.ico",
+    shortcut: "/favicon/favicon-32x32.png",
+    apple: "/favicon/apple-touch-icon.png",
+  },
+  manifest: "/favicon/site.webmanifest",
 };
 
 export default function RootLayout({
