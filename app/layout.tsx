@@ -19,11 +19,14 @@ export const metadata: Metadata = {
   description:
     "April 19 CPR and First Aid certification course from Exceed Learning Center for teens and adults.",
   icons: {
-    icon: "/favicon/favicon.ico",
-    shortcut: "/favicon/favicon-32x32.png",
-    apple: "/favicon/apple-touch-icon.png",
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
-  manifest: "/favicon/site.webmanifest",
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
