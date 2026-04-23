@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -10,6 +12,8 @@ import {
   Users,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
+import { useState } from "react";
+import PaymentModal from "./PaymentModal";
 
 type ProgramOption = {
   option: string;
@@ -153,12 +157,35 @@ function SectionIntro({
   );
 }
 
+function calcCardPrice(priceStr: string): string {
+  const num = parseFloat(priceStr.replace(/[^0-9.]/g, ""));
+  return "$" + (num * 1.04).toFixed(2);
+}
+
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<(typeof programOptions)[0] | null>(null);
+
+  function openModal(option: (typeof programOptions)[0]) {
+    setSelectedOption(option);
+    setModalOpen(true);
+  }
+
   return (
     <main className="pb-16 sm:pb-24">
+      {selectedOption && (
+        <PaymentModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          courseName={selectedOption.name}
+          cashPrice={selectedOption.price}
+          cardPrice={calcCardPrice(selectedOption.price)}
+          stripeLink={selectedOption.checkoutUrl}
+        />
+      )}
       <SiteHeader />
 
-      <section id="overview" className="section-shell scroll-mt-28 pt-3 sm:scroll-mt-32 sm:pt-5">
+      <section id="overview" className="section-shell scroll-mt-28 pt-1 sm:scroll-mt-32 sm:pt-2">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.98fr)_minmax(340px,1.02fr)] lg:gap-10">
           <div className="fade-up fade-up-delay-1 rounded-[38px] border border-white/75 bg-white/82 px-6 py-8 shadow-[0_30px_90px_rgba(5,38,77,0.12)] backdrop-blur sm:px-8 sm:py-10 lg:px-10 lg:py-12">
             <div className="flex flex-wrap gap-3">
@@ -200,21 +227,19 @@ export default function Home() {
             </div>
 
             <div className="mt-4 flex flex-wrap gap-3">
-              {programOptions.map(({ name, price, checkoutUrl, featured }) => (
-                <a
-                  key={name}
-                  href={checkoutUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`Enroll now in ${name} for ${price}`}
+              {programOptions.map((option) => (
+                <button
+                  key={option.name}
+                  onClick={() => openModal(option)}
+                  aria-label={`Enroll now in ${option.name} for ${option.price}`}
                   className={`inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-bold transition-transform hover:-translate-y-0.5 ${
-                    featured
+                    option.featured
                       ? "bg-brand-red text-white hover:bg-brand-red/92"
                       : "border border-brand-navy/12 bg-white text-brand-navy hover:bg-brand-navy/5"
                   }`}
                 >
                   Enroll Now
-                </a>
+                </button>
               ))}
             </div>
 
@@ -424,25 +449,23 @@ export default function Home() {
                   ))}
                 </div>
 
-                <a
-                  href={checkoutUrl}
-                  target="_blank"
-                  rel="noreferrer"
+                <button
+                  onClick={() => openModal({ option, name, price, duration, time, description, certificate, includes, checkoutUrl, icon: Icon, featured })}
                   aria-label={`Enroll now in ${name} for ${price}`}
-                  className={`mt-6 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-sm font-bold transition-transform hover:-translate-y-0.5 ${
+                  className={`mt-4 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-sm font-bold transition-transform hover:-translate-y-0.5 ${
                     featured
                       ? "bg-white text-brand-red hover:bg-white/92"
                       : "bg-brand-navy text-white hover:bg-brand-navy/92"
                   }`}
                 >
-                  Enroll Now
-                </a>
+                  Enroll Now — Choose Payment
+                </button>
               </article>
             ),
           )}
 
           <aside className="fade-up fade-up-delay-1 overflow-hidden rounded-[34px] bg-brand-navy text-white shadow-[0_28px_70px_rgba(5,38,77,0.25)]">
-            <div className="relative h-56">
+            <div className="relative h-44">
               <Image
                 src="/first-aid-kit.jpg"
                 alt="First aid kit and emergency supplies used during training"
@@ -456,7 +479,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="px-6 py-7">
+            <div className="px-6 py-5">
               <SectionIntro
                 eyebrow="Why enroll"
                 title="Recognized certification with practical emergency-response value."
@@ -466,7 +489,7 @@ export default function Home() {
 
               <div className="mt-7 space-y-4">
                 {credibilityPoints.map((point) => (
-                  <div key={point} className="rounded-[24px] border border-white/10 bg-white/8 px-4 py-4">
+                  <div key={point} className="rounded-[24px] border border-white/10 bg-white/8 px-4 py-3">
                     <div className="flex items-start gap-3">
                       <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-brand-gold" />
                       <p className="text-sm leading-7 text-white/86">{point}</p>

@@ -30,7 +30,7 @@ export function SiteHeader() {
   return (
     <header
       className={`section-shell sticky top-0 z-50 transition-[padding] duration-300 ${
-        isScrolled ? "py-2" : "py-4"
+        isScrolled ? "py-1.5" : "py-2.5"
       }`}
     >
       <div
