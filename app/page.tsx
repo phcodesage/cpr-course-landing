@@ -8,7 +8,6 @@ import {
   CheckCircle2,
   Clock3,
   HeartPulse,
-  ShieldCheck,
   Users,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
@@ -35,27 +34,24 @@ type Stat = {
   icon: LucideIcon;
 };
 
-type Module = {
-  title: string;
-  description: string;
-};
-
 const quickStats: Stat[] = [
-  { label: "Date", value: "April 19", icon: CalendarDays },
+  { label: "Next Date", value: "May 30", icon: CalendarDays },
   { label: "Start time", value: "10:00 AM", icon: Clock3 },
   { label: "Ages", value: "Teens and adults", icon: Users },
 ];
 
+const upcomingDates = ["May 30", "June 20", "July 18"];
+
 const programOptions: ProgramOption[] = [
   {
     option: "Option 1",
-    name: "CPR Only",
-    price: "$160",
+    name: "CPR — No Certificate",
+    price: "$100",
     duration: "2 hours",
     time: "10:00 AM - 12:00 PM",
     description:
-      "A focused CPR AED session for anyone who needs a shorter training format with recognized certification.",
-    certificate: "2 year CPR certification included",
+      "A focused CPR AED training session for anyone who wants to learn life-saving skills without the certification card.",
+    certificate: "No certification card — training only",
     includes: [
       "Adult CPR AED",
       "Adult choking",
@@ -67,22 +63,22 @@ const programOptions: ProgramOption[] = [
   },
   {
     option: "Option 2",
-    name: "CPR + First Aid",
-    price: "$215",
-    duration: "4 hours",
-    time: "10:00 AM - 2:00 PM",
+    name: "CPR — With Certificate",
+    price: "$150",
+    duration: "2 hours",
+    time: "10:00 AM - 12:00 PM",
     description:
-      "A longer course that adds first aid training for a fuller emergency-response skill set.",
-    certificate: "2 year certification for both CPR and First Aid",
+      "The same CPR AED training plus an accredited American Heart Association certification card valid for 2 years.",
+    certificate: "2-year AHA CPR certification card included",
     includes: [
-      "Everything in the CPR Only course",
-      "First aid basics",
-      "Medical emergencies",
-      "Injury emergencies",
-      "Environmental emergencies",
+      "Adult CPR AED",
+      "Adult choking",
+      "Child CPR AED",
+      "Child and infant choking",
+      "AHA certification card (valid 2 years)",
     ],
     checkoutUrl: "https://buy.stripe.com/4gMfZabSs9se4xPakHdfG0k",
-    icon: ShieldCheck,
+    icon: BadgeCheck,
     featured: true,
   },
 ];
@@ -105,26 +101,6 @@ const cprCourseCoverage = [
   "Adult choking",
   "Child CPR AED",
   "Child and infant choking",
-];
-
-const firstAidModules: Module[] = [
-  {
-    title: "First aid basics",
-    description: "Scene safety, finding the problem, and calling for help.",
-  },
-  {
-    title: "Medical emergencies",
-    description: "Actions for choking, breathing problems, and shock.",
-  },
-  {
-    title: "Injury emergencies",
-    description: "Actions for bleeding, broken bones, and burns.",
-  },
-  {
-    title: "Environmental emergencies",
-    description:
-      "Actions for bites and stings, temperature-related emergencies, and poison emergencies.",
-  },
 ];
 
 function SectionIntro({
@@ -190,7 +166,7 @@ export default function Home() {
           <div className="fade-up fade-up-delay-1 rounded-[38px] border border-white/75 bg-white/82 px-6 py-8 shadow-[0_30px_90px_rgba(5,38,77,0.12)] backdrop-blur sm:px-8 sm:py-10 lg:px-10 lg:py-12">
             <div className="flex flex-wrap gap-3">
               <span className="rounded-full border border-brand-red/16 bg-brand-red/8 px-4 py-2 text-sm font-semibold text-brand-red">
-                April 19 session
+                Every 3rd Saturday
               </span>
               <span className="rounded-full border border-brand-navy/12 bg-brand-navy/5 px-4 py-2 text-sm font-semibold text-brand-navy">
                 For teens and adults
@@ -205,10 +181,10 @@ export default function Home() {
             </h1>
 
             <p className="mt-5 max-w-2xl text-base leading-8 text-brand-ink/74 sm:text-lg">
-              Choose the 2-hour CPR Only course from 10:00 AM to 12:00 PM for $160, or stay for
-              the 4-hour CPR and First Aid course from 10:00 AM to 2:00 PM for $215. Both options
-              are built to help students respond calmly in the first critical minutes of an
-              emergency.
+              Classes run every 3rd Saturday of the month — May 30, June 20, and July 18 — starting
+              at 10:00 AM. Choose the $100 training-only option or the $150 option that includes
+              your 2-year AHA certification card. Both are built to help you respond calmly in the
+              first critical minutes of an emergency.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -280,7 +256,7 @@ export default function Home() {
 
                 <div className="absolute left-5 right-5 top-5 flex items-start sm:left-6 sm:right-6 sm:top-6">
                   <div className="rounded-full border border-white/20 bg-white/12 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur">
-                    April 19 at 10:00 AM
+                    Every 3rd Saturday · 10:00 AM
                   </div>
                 </div>
 
@@ -290,7 +266,7 @@ export default function Home() {
                       CPR certification course
                     </p>
                     <h2 className="mt-3 font-display text-[1.9rem] font-semibold leading-tight text-white drop-shadow-[0_8px_20px_rgba(5,38,77,0.55)] sm:text-4xl">
-                      Two paths, one high-trust emergency response course.
+                      Two options, one high-trust CPR course every 3rd Saturday.
                     </h2>
                   </div>
 
@@ -341,17 +317,17 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_22%,rgba(5,38,77,0.48)_100%)]" />
                 <div className="absolute left-4 top-4 rounded-full bg-white/84 px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-brand-navy">
-                  First Aid track
+                  CPR Training
                 </div>
               </div>
 
               <div className="p-2 pb-1 pt-4">
                 <p className="font-display text-xl font-semibold text-brand-ink">
-                  The 4-hour option adds the full first aid layer.
+                  Add your AHA cert card for just $50 more.
                 </p>
                 <p className="mt-2 text-sm leading-7 text-brand-ink/72">
-                  Cover scene safety, medical emergencies, injury emergencies, and environmental
-                  emergencies alongside CPR AED skills.
+                  The $150 option includes everything in the training plus a 2-year American Heart
+                  Association certification card recognized by employers.
                 </p>
               </div>
             </div>
@@ -362,8 +338,8 @@ export default function Home() {
       <section id="programs" className="section-shell scroll-mt-28 pt-10 sm:scroll-mt-32 sm:pt-14">
         <SectionIntro
           eyebrow="Programs"
-          title="A cleaner schedule and stronger visual hierarchy make the offer easy to trust."
-          description="The course options below match the exact April 19 schedule while keeping certification details visible at the same time."
+          title="Simple pricing, clear options — no cert or with cert."
+          description="Classes run every 3rd Saturday: May 30, June 20, and July 18. Pick the option that fits your needs."
         />
 
         <div className="mt-10 grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(320px,0.95fr)]">
@@ -576,31 +552,32 @@ export default function Home() {
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-gold">
-                    First Aid CPR AED course
+                    AHA Certification
                   </p>
                   <h3 className="mt-3 font-display text-3xl font-semibold">
-                    Extended first aid modules
+                    Upcoming class dates
                   </h3>
                 </div>
                 <div className="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white/82">
-                  Included in the 10:00 AM - 2:00 PM option
+                  Every 3rd Saturday
                 </div>
               </div>
 
-              <div className="mt-7 grid gap-4 sm:grid-cols-2">
-                {firstAidModules.map(({ title, description }) => (
-                  <div key={title} className="rounded-[28px] border border-white/10 bg-white/8 p-5">
-                    <ShieldCheck className="h-5 w-5 text-brand-gold" />
-                    <p className="mt-4 text-lg font-semibold">{title}</p>
-                    <p className="mt-2 text-sm leading-7 text-white/78">{description}</p>
+              <div className="mt-7 grid gap-4 sm:grid-cols-3">
+                {upcomingDates.map((date) => (
+                  <div key={date} className="rounded-[28px] border border-white/10 bg-white/8 p-5">
+                    <CalendarDays className="h-5 w-5 text-brand-gold" />
+                    <p className="mt-4 text-lg font-semibold">{date}</p>
+                    <p className="mt-2 text-sm leading-7 text-white/78">10:00 AM · 2 hours</p>
                   </div>
                 ))}
               </div>
 
               <div className="mt-6 rounded-[28px] border border-brand-gold/20 bg-brand-gold/10 p-5">
                 <p className="text-sm leading-7 text-white/86">
-                  The 4-hour course also teaches adult CPR AED, child CPR AED, and infant CPR, so
-                  first aid content stays connected to full emergency response readiness.
+                  Add your 2-year American Heart Association certification card for $150 — just $50
+                  more than the $100 training-only option. The cert is recognized by employers and
+                  valid for 2 years.
                 </p>
               </div>
             </article>
@@ -613,14 +590,14 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/72">
-                April 19 CPR course
+                CPR course — every 3rd Saturday
               </p>
               <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight sm:text-4xl [text-wrap:balance]">
                 Train once and leave with skills that matter at home, at work, and in the community.
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-white/82">
-                Two course formats, accredited certification, and a clearer visual presentation now
-                make the offer feel more professional, more complete, and easier to act on.
+                Upcoming dates: May 30, June 20, July 18. Choose $100 for training only or $150
+                to include your 2-year AHA certification card.
               </p>
             </div>
 

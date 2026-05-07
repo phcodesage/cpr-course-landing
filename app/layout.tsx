@@ -15,9 +15,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "CPR AND FIRST AID TRAINING | Exceed Learning Center",
+  title: "CPR TRAINING | Exceed Learning Center",
   description:
-    "April 19 CPR and First Aid certification course from Exceed Learning Center for teens and adults.",
+    "CPR certification course every 3rd Saturday — May 30, June 20, July 18. $100 no cert, $150 with AHA certification. Teens and adults welcome.",
   icons: {
     icon: [
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
