@@ -58,7 +58,7 @@ const programOptions: ProgramOption[] = [
       "Child CPR AED",
       "Child and infant choking",
     ],
-    checkoutUrl: "https://buy.stripe.com/00wbIUf4E7k66FX2SfdfG0j",
+    checkoutUrl: "https://securelink-prod.valorpaytech.com:4430/?redirect=1&uid=bd926cd9-5304-11f1-a8e1-12a0879a85b1",
     icon: HeartPulse,
   },
   {
@@ -77,7 +77,7 @@ const programOptions: ProgramOption[] = [
       "Child and infant choking",
       "AHA certification card (valid 2 years)",
     ],
-    checkoutUrl: "https://buy.stripe.com/4gMfZabSs9se4xPakHdfG0k",
+    checkoutUrl: "https://securelink-prod.valorpaytech.com:4430/?redirect=1&uid=9cb0c691-5304-11f1-a8e1-12a0879a85b1",
     icon: BadgeCheck,
     featured: true,
   },

@@ -178,7 +178,7 @@ export default function PaymentModal({
                   <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <div className="text-left min-w-0">
-                  <p className="font-bold text-gray-900 text-sm sm:text-base">Pay by Card (Stripe)</p>
+                  <p className="font-bold text-gray-900 text-sm sm:text-base">Pay by Card (Valor Pay)</p>
                   <p className="text-[12px] sm:text-sm text-gray-600">
                     <strong className="text-[#d53033]">{cardPrice}</strong>{" "}
                     <span className="text-gray-500">(includes 4% fee)</span>
